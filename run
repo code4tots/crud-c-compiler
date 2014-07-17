@@ -1,0 +1,4 @@
+#!/bin/bash
+nasm -f macho $1 && ld -o a.out -e _start `basename $1 .asm`.o -macosx_version_min 10.5 && ./a.out
+echo "return value is $?"
+rm -rf `basename $1 .asm`.o a.out
